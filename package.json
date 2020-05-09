@@ -1,0 +1,14 @@
+{
+  "name": "resizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "resizer.js",
+  "scripts": {
+    "build": "terser --mangle --compress --source-map  --output resizer.min.js -- resizer.js"
+  },
+  "author": "Kanwar Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "terser": "^4.6.13"
+  }
+}
