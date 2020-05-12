@@ -17,7 +17,10 @@
             this.y_img_ele = 0;
         this.init(containerId, imageId, zoomInButtonId, zoomOutButtonId, resetButtonId)
     };
-
+    /**
+     * Function to reset the image scale back to original
+     * @param {String} imageId css id selector of img tag
+     */
     function resetSize(imageId) {
         this.img_ele = document.getElementById(imageId);
         this.img_ele.style.width = "100%";
@@ -27,6 +30,11 @@
         this.img_ele = null;
     }
 
+    /**
+     * Function to scale up and down the image based on increment > 1 or < 1
+     * @param {String} imageId css id selector of img tag
+     * @param {number} zoomincrement value starting from > 1
+     */
     function zoom(imageId, zoomincrement) {
         this.img_ele = document.getElementById(imageId);
         let pre_width = this.img_ele.getBoundingClientRect().width, pre_height = this.img_ele.getBoundingClientRect().height;
@@ -35,16 +43,26 @@
         this.img_ele = null;
     }
 
+    /**
+     * Event function bound to event mousedown
+     * @param {String} imageId css id selector of img tag
+     */
     function start_drag(imageId) {
         this.img_ele = document.getElementById(imageId);
         this.x_img_ele = window.event.clientX - this.img_ele.offsetLeft;
         this.y_img_ele = window.event.clientY - this.img_ele.offsetTop;
     }
 
+    /**
+     * Function bound to drag event end
+     */
     function stop_drag() {
         this.img_ele = null;
     }
 
+    /**
+     * Function to adjust the left and top of image element. This function is bound to mousemove event
+     */
     function while_drag() {
         this.x_cursor = window.event.clientX;
         this.y_cursor = window.event.clientY;
